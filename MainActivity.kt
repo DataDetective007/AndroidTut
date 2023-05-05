@@ -56,7 +56,16 @@ class MainActivity : AppCompatActivity() {
                     headerView.findViewById<TextView>(R.id.txtEmail).text = task.result["email_id"].toString()
                 } else {
                     val error: String = task.exception!!.message.toString()
-                    Toast.makeText(this@MainActivity, error, Toast.LENGTH_LONG).show()
+                    val vg: ViewGroup? = findViewById(R.id.custom_toast) #CUSTOM TOAST ACTIVITY
+                    val inflater = layoutInflater
+                    val layout: View = inflater.inflate(R.layout.activity_custom_toast, vg)
+                    val tv = layout.findViewById<TextView>(R.id.txtVw)
+                    tv.text = "Register here"
+                    val toast = Toast(applicationContext)
+                    toast.setGravity(Gravity.BOTTOM, 0, 300)
+                    toast.setView(layout)
+                    toast.duration = Toast.LENGTH_SHORT
+                    toast.show()
                 }
             }
         setupActionBarWithNavController(navController, appBarConfiguration)
