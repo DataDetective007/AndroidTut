@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                     headerView.findViewById<TextView>(R.id.txtEmail).text = task.result["email_id"].toString()
                 } else {
                     val error: String = task.exception!!.message.toString()
-                    Toast.makeText(this@MainActivity, error, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
                 }
             }
         setupActionBarWithNavController(navController, appBarConfiguration)
